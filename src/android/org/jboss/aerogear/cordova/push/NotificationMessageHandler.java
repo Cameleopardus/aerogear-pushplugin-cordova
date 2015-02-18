@@ -38,8 +38,8 @@ public class NotificationMessageHandler implements MessageHandler {
   try {
         if (message != null) {
           // Send a notification if there is a message
-          Log.w("Is in foreground:");
-          Log.w(PushPlugin.isInForeground());
+          Log.w(TAG, "Is in foreground:");
+          Log.w(TAG, PushPlugin.isInForeground());
 
           if (!PushPlugin.isInForeground() && message.getString("alert").length() != 0) {
             createNotification(context, message);
@@ -49,7 +49,7 @@ public class NotificationMessageHandler implements MessageHandler {
         }
       }
       catch(NullPointerException e){
-        Log.v("couldn't get foreground status of pushplugin");
+        Log.v(TAG, "couldn't get foreground status of pushplugin");
       }
     }
 
