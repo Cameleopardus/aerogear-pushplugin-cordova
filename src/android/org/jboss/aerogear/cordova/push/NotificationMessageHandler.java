@@ -39,7 +39,7 @@ public class NotificationMessageHandler implements MessageHandler {
         if (message != null) {
           // Send a notification if there is a message
           Log.w(TAG, "Is in foreground:");
-          Log.w(TAG, PushPlugin.isInForeground());
+          Log.w(TAG, String.valueOf(PushPlugin.isInForeground()));
 
           if (!PushPlugin.isInForeground() && message.getString("alert").length() != 0) {
             createNotification(context, message);
