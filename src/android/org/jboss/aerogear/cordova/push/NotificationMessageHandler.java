@@ -49,7 +49,7 @@ public class NotificationMessageHandler implements MessageHandler {
         }
       }
       catch(NullPointerException e){
-        Log.v("couldn't get foreground status of pushplugin")
+        Log.v("couldn't get foreground status of pushplugin");
       }
     }
 
