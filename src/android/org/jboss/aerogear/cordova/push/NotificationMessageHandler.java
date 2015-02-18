@@ -35,18 +35,23 @@ public class NotificationMessageHandler implements MessageHandler {
   public void onMessage(Context context, Bundle message) {
     Log.d(TAG, "onMessage - context: " + context);
 
-    if (message != null) {
-      // Send a notification if there is a message
-      Log.w("Is in foreground:")
-      Log.w(PushPlugin.isInForeground());
+  try {
+        if (message != null) {
+          // Send a notification if there is a message
+          Log.w("Is in foreground:")
+          Log.w(PushPlugin.isInForeground());
 
-      if (!PushPlugin.isInForeground() && message.getString("alert").length() != 0) {
-        createNotification(context, message);
-      } else {
-        PushPlugin.sendMessage(message);
+          if (!PushPlugin.isInForeground() && message.getString("alert").length() != 0) {
+            createNotification(context, message);
+          } else {
+            PushPlugin.sendMessage(message);
+          }
+        }
+      }
+      catch(NullPointerException e){
+        Log.v("couldn't get foreground status of pushplugin")
       }
     }
-  }
 
   @Override
   public void onDeleteMessage(Context context, Bundle message) {
