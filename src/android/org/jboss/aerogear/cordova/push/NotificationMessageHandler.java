@@ -90,7 +90,7 @@ public class NotificationMessageHandler implements MessageHandler {
     if (message != null) {
       builder.setContentText(message);
     } else {
-      builder.setContentText("<missing message content>");
+      builder.setContentText("    ");
     }
 
     String msgcnt = extras.getString("msgcnt");
