@@ -85,7 +85,7 @@
     [registration registerWithClientInfo:[self pushConfig:deviceToken withDict:userDefaults] success:^() {
         [self.commandDelegate evalJs:@"cordova.require('org.jboss.aerogear.cordova.push.AeroGear.UnifiedPush').successCallback()"];
     } failure:^(NSError *error) {
-        [self failWithError:error];
+        // [self failWithError:error];
     }];
 }
 
